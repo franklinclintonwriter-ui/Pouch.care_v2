@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { SEOJsonLd } from '@/components/seo/json-ld';
 import { ScrollToTop } from '@/components/ui/scroll-to-top';
+import { ScrollProgress } from '@/components/ui/scroll-progress';
 import { organizationJsonLd, websiteJsonLd } from '@/lib/seo';
 import { SITE_URL, siteConfig } from '@/lib/site';
 
@@ -80,6 +81,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body className="min-h-screen bg-background font-sans">
         <SEOJsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
+        <ScrollProgress />
         <Header />
         <main id="main-content">{children}</main>
         <Footer />

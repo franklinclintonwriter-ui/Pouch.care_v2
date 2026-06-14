@@ -12,9 +12,9 @@ export function InvestorCard({
   note?: string;
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+    <div className="group rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-gold-300/70 hover:shadow-elevated">
       <div className="flex items-center gap-3">
-        <span className="flex size-9 items-center justify-center rounded-lg bg-gold-50 text-gold-700">
+        <span className="flex size-9 items-center justify-center rounded-lg bg-gold-50 text-gold-700 transition-transform group-hover:scale-110">
           <Icon name={icon} className="size-4" />
         </span>
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
