@@ -4,6 +4,7 @@ import type { NewsPost } from '@/lib/types';
 export const news: NewsPost[] = [
   {
     slug: 'pouch-care-international-incorporated',
+    image: '/blog/pouch-care-international-incorporated.svg',
     title:
       'Pouch Care International Ltd. incorporated as a private limited company',
     excerpt:
@@ -22,6 +23,7 @@ export const news: NewsPost[] = [
   },
   {
     slug: 'pouch-care-expands-legal-foundation',
+    image: '/blog/pouch-care-expands-legal-foundation.svg',
     title: 'Pouch Care expands legal foundation across diversified sectors',
     excerpt:
       'The company’s Memorandum & Articles of Association establish a diversified set of objects, enabling operations across technology, trade, commerce and agriculture.',
@@ -39,6 +41,7 @@ export const news: NewsPost[] = [
   },
   {
     slug: 'verification-center-launched',
+    image: '/blog/verification-center-launched.svg',
     title: 'Company Verification Center launched',
     excerpt:
       'Pouch Care International Ltd. introduces a public-safe Verification Center with redacted document previews, masked sensitive fields, and a transparent document registry.',

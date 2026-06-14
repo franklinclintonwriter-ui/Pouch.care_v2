@@ -14,6 +14,7 @@ export const insightCategories: InsightCategory[] = [
 export const insights: InsightPost[] = [
   {
     slug: 'building-a-verified-enterprise-in-bangladesh',
+    image: '/blog/building-a-verified-enterprise-in-bangladesh.svg',
     title: 'Building a verified enterprise in Bangladesh',
     excerpt:
       'Why verifiable incorporation, transparent documentation and privacy-first disclosure are the foundation of long-term business credibility.',
@@ -31,6 +32,7 @@ export const insights: InsightPost[] = [
   },
   {
     slug: 'fundamentals-of-compliant-import-export',
+    image: '/blog/fundamentals-of-compliant-import-export.svg',
     title: 'The fundamentals of compliant import & export',
     excerpt:
       'A practical view of the documentation, discipline and risk management that separate sustainable trade operations from opportunistic ones.',
@@ -48,6 +50,7 @@ export const insights: InsightPost[] = [
   },
   {
     slug: 'seo-as-a-compounding-business-asset',
+    image: '/blog/seo-as-a-compounding-business-asset.svg',
     title: 'SEO as a compounding business asset',
     excerpt:
       'Treating search visibility as durable infrastructure rather than a campaign changes how you invest — and what you earn.',
@@ -65,6 +68,7 @@ export const insights: InsightPost[] = [
   },
   {
     slug: 'designing-trustworthy-ecommerce',
+    image: '/blog/designing-trustworthy-ecommerce.svg',
     title: 'Designing trustworthy e-commerce experiences',
     excerpt:
       'Trust is the real conversion lever in digital commerce. Here is how thoughtful design, transparency and operations earn it.',
@@ -82,6 +86,7 @@ export const insights: InsightPost[] = [
   },
   {
     slug: 'it-ites-engineering-for-reliability',
+    image: '/blog/it-ites-engineering-for-reliability.svg',
     title: 'IT & ITES: engineering for reliability',
     excerpt:
       'Reliability is a product feature. The practices that deliver it — testing, security by design, documentation — are also what make teams scale.',
@@ -99,6 +104,7 @@ export const insights: InsightPost[] = [
   },
   {
     slug: 'sustainable-agro-value-chains',
+    image: '/blog/sustainable-agro-value-chains.svg',
     title: 'Toward sustainable agro value chains',
     excerpt:
       'Linking responsible agro production to trading and commerce channels can create resilient, transparent value chains.',
