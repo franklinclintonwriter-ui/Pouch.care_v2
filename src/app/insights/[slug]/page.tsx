@@ -32,6 +32,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
     publishedTime: post.date,
     authors: [post.author],
     keywords: [post.category, 'Pouch Care insights', 'Bangladesh business'],
+    image: post.image,
   });
 }
 
@@ -94,6 +95,14 @@ export default function InsightArticlePage({
 
       <Section>
         <Container size="narrow">
+          {post.image ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={post.image}
+              alt={post.title}
+              className="mb-10 aspect-[16/9] w-full rounded-2xl object-cover shadow-elevated"
+            />
+          ) : null}
           <article>
             {post.body.map((para, i) => (
               <p
@@ -127,6 +136,7 @@ export default function InsightArticlePage({
                   category={p.category}
                   dateLabel={p.dateLabel}
                   readingTime={p.readingTime}
+                  image={p.image}
                 />
               </ScrollReveal>
             ))}

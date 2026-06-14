@@ -50,6 +50,7 @@ export default function NewsroomPage() {
                 category={post.category}
                 dateLabel={post.dateLabel}
                 readingTime={post.readingTime}
+                image={post.image}
               />
             </ScrollReveal>
           ))}

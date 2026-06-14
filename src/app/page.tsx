@@ -344,6 +344,7 @@ export default function HomePage() {
                 category={post.category}
                 dateLabel={post.dateLabel}
                 readingTime={post.readingTime}
+                image={post.image}
               />
             </ScrollReveal>
           ))}
@@ -356,6 +357,7 @@ export default function HomePage() {
                 category={post.category}
                 dateLabel={post.dateLabel}
                 readingTime={post.readingTime}
+                image={post.image}
               />
             </ScrollReveal>
           ))}

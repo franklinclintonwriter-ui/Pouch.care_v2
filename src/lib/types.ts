@@ -133,6 +133,8 @@ export interface NewsPost {
   dateLabel: string;
   readingTime: string;
   body: string[]; // paragraphs
+  /** Optional AI-generated cover image (path under /public). */
+  image?: string;
 }
 
 export interface InsightPost {
@@ -145,6 +147,8 @@ export interface InsightPost {
   dateLabel: string;
   readingTime: string;
   body: string[];
+  /** Optional AI-generated cover image (path under /public). */
+  image?: string;
 }
 
 export type InsightCategory =

@@ -9,6 +9,8 @@ interface PageMetaInput {
   publishedTime?: string;
   authors?: string[];
   keywords?: string[];
+  /** Absolute or root-relative image path to use for OG/Twitter cards. */
+  image?: string;
 }
 
 /** Build consistent, SEO-complete metadata for a page. */
@@ -20,9 +22,14 @@ export function buildMetadata({
   publishedTime,
   authors,
   keywords,
+  image,
 }: PageMetaInput): Metadata {
   const url = `${SITE_URL}${path === '/' ? '' : path}`;
-  const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(title)}`;
+  const ogImage = image
+    ? image.startsWith('http')
+      ? image
+      : `${SITE_URL}${image}`
+    : `${SITE_URL}/api/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,

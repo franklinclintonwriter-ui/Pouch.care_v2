@@ -58,6 +58,7 @@ export default function InsightsPage() {
                 category={post.category}
                 dateLabel={post.dateLabel}
                 readingTime={post.readingTime}
+                image={post.image}
               />
             </ScrollReveal>
           ))}

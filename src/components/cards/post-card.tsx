@@ -10,6 +10,7 @@ interface PostCardProps {
   dateLabel: string;
   readingTime?: string;
   featured?: boolean;
+  image?: string;
 }
 
 /** Unified card for both Newsroom (NewsCard) and Insights (BlogCard). */
@@ -21,6 +22,7 @@ export function PostCard({
   dateLabel,
   readingTime,
   featured,
+  image,
 }: PostCardProps) {
   return (
     <Link
@@ -28,13 +30,32 @@ export function PostCard({
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-gold-300/70 hover:shadow-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
       <div className="relative flex aspect-[16/9] items-center justify-center overflow-hidden bg-gradient-navy">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_rgba(193,146,42,0.25),transparent_55%)]"
-        />
-        <span className="relative font-serif text-2xl font-semibold text-ivory/90">
-          Pouch Care
-        </span>
+        {image ? (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={image}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-navy-950/50 via-transparent to-transparent"
+            />
+          </>
+        ) : (
+          <>
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_rgba(193,146,42,0.25),transparent_55%)]"
+            />
+            <span className="relative font-serif text-2xl font-semibold text-ivory/90">
+              Pouch Care
+            </span>
+          </>
+        )}
         <Badge variant="gold" className="absolute left-4 top-4">
           {category}
         </Badge>

@@ -32,6 +32,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
     publishedTime: post.date,
     authors: [post.author],
     keywords: [post.category, 'Pouch Care news'],
+    image: post.image,
   });
 }
 
@@ -92,6 +93,14 @@ export default function NewsArticlePage({
 
       <Section>
         <Container size="narrow">
+          {post.image ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={post.image}
+              alt={post.title}
+              className="mb-10 aspect-[16/9] w-full rounded-2xl object-cover shadow-elevated"
+            />
+          ) : null}
           <article className="prose-enterprise">
             {post.body.map((para, i) => (
               <p
@@ -128,6 +137,7 @@ export default function NewsArticlePage({
                   category={p.category}
                   dateLabel={p.dateLabel}
                   readingTime={p.readingTime}
+                  image={p.image}
                 />
               </ScrollReveal>
             ))}
