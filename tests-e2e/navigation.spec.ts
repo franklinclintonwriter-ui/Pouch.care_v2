@@ -5,8 +5,9 @@ test.describe('Desktop navigation', () => {
 
   test('mega menu reveals and links navigate', async ({ page }) => {
     await page.goto('/');
-    // Open the "Business" mega menu trigger.
-    await page.getByRole('button', { name: /^Business$/ }).hover();
+    // Scope to the primary navigation (the footer also has a "Business" toggle).
+    const primary = page.getByRole('navigation', { name: 'Primary' });
+    await primary.getByRole('button', { name: /^Business$/ }).hover();
     const tradingLink = page.getByRole('link', {
       name: /Trading, Import & Export/i,
     });
@@ -19,8 +20,8 @@ test.describe('Desktop navigation', () => {
   test('direct contact link works', async ({ page }) => {
     await page.goto('/');
     await page
+      .getByRole('navigation', { name: 'Primary' })
       .getByRole('link', { name: /^Contact$/ })
-      .first()
       .click();
     await expect(page).toHaveURL(/\/contact/);
   });
