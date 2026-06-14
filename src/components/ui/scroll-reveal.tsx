@@ -29,10 +29,12 @@ export function ScrollReveal({
   return (
     <MotionTag
       className={className}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98], delay }}
+      // Trigger as soon as the element edges into view so content never
+      // lingers half-faded while scrolling.
+      viewport={{ once: true, margin: '0px 0px -12% 0px' }}
+      transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98], delay }}
     >
       {children}
     </MotionTag>
