@@ -17,19 +17,23 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:preview": "npm run pages:build && npx wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat",
+    "pages:deploy": "npm run pages:build && npx wrangler pages deploy .vercel/output/static"
   },
   "dependencies": {
+    "class-variance-authority": "0.7.0",
+    "clsx": "2.1.1",
+    "framer-motion": "11.5.4",
+    "lucide-react": "0.441.0",
     "next": "14.2.15",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "framer-motion": "11.5.4",
-    "lucide-react": "0.441.0",
-    "class-variance-authority": "0.7.0",
-    "clsx": "2.1.1",
     "tailwind-merge": "2.5.2"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.12",
     "@playwright/test": "1.47.2",
     "@testing-library/jest-dom": "6.5.0",
     "@testing-library/react": "16.0.1",
@@ -48,6 +52,7 @@
     "tailwindcss": "3.4.12",
     "tailwindcss-animate": "1.0.7",
     "typescript": "5.6.2",
-    "vitest": "2.1.1"
+    "vitest": "2.1.1",
+    "wrangler": "^3.114.17"
   }
 }

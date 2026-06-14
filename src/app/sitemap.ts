@@ -5,6 +5,9 @@ import { leaders } from '@/data/leadership';
 import { news } from '@/data/news';
 import { insights } from '@/data/insights';
 
+// Run on the Edge runtime so Cloudflare Pages (next-on-pages) can serve it.
+export const runtime = 'edge';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 

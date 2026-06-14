@@ -1,0 +1,6 @@
+# Cloudflare Pages configuration for Pouch Care International Ltd.
+# Deployed via @cloudflare/next-on-pages (build output: .vercel/output/static).
+name = "pouch-care"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
