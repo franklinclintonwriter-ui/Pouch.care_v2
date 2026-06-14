@@ -25,7 +25,7 @@ export function DocumentCard({ doc }: { doc: LegalDocument }) {
   }, [doc]);
 
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-soft transition-shadow hover:shadow-elevated">
+    <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-gold-300/70 hover:shadow-elevated">
       <div className="flex items-start justify-between gap-3">
         <Badge variant="gold">{doc.category}</Badge>
         <StatusBadge status={status} />
