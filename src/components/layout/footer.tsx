@@ -1,8 +1,7 @@
-import Link from 'next/link';
 import { ShieldCheck, Mail, MapPin } from 'lucide-react';
 import { Container } from './container';
 import { ResponsiveLogo } from '@/components/brand/responsive-logo';
-import { footerNav } from '@/data/nav';
+import { FooterNav } from './footer-nav';
 import { company } from '@/data/company';
 
 export function Footer() {
@@ -14,9 +13,10 @@ export function Footer() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(193,146,42,0.12),transparent_45%)]"
       />
-      <Container className="relative py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_3fr]">
-          <div className="max-w-sm">
+      <Container className="relative py-14 sm:py-16">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_3fr] lg:gap-12">
+          {/* Brand + contact */}
+          <div className="max-w-md">
             <ResponsiveLogo href="/" invert />
             <p className="mt-5 text-sm leading-relaxed text-ivory/65">
               {company.legalName} is a Bangladesh-incorporated private limited
@@ -53,32 +53,13 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
-            {footerNav.map((col) => (
-              <div key={col.heading}>
-                <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-300">
-                  {col.heading}
-                </h2>
-                <ul className="mt-4 space-y-2.5">
-                  {col.items.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        className="text-sm text-ivory/65 transition-colors hover:text-ivory"
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          {/* Link groups — accordions on mobile, columns on sm+ */}
+          <FooterNav />
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-ivory/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-ivory/55 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {company.legalName}. All rights reserved.
+            © {year} {company.legalName} All rights reserved.
           </p>
           <p className="max-w-xl text-ivory/45">
             Public previews of legal documents are redacted for privacy and
