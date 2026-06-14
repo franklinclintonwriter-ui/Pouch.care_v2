@@ -6,7 +6,6 @@ import { ResponsiveLogo } from '@/components/brand/responsive-logo';
 import { MegaMenu } from './mega-menu';
 import { MobileNav } from './mobile-nav';
 import { Button } from '@/components/ui/button';
-import { ThemeToggle } from '@/components/theme/theme-toggle';
 import { cn } from '@/lib/utils';
 
 export function Header() {
@@ -53,7 +52,6 @@ export function Header() {
           <ResponsiveLogo href="/" />
           <MegaMenu />
           <div className="flex items-center gap-2">
-            <ThemeToggle className="hidden sm:inline-flex" />
             <Button
               href="/verification"
               variant="outline"

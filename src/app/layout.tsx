@@ -3,8 +3,8 @@ import { Inter, Fraunces } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { ThemeProvider, themeScript } from '@/components/theme/theme-provider';
 import { SEOJsonLd } from '@/components/seo/json-ld';
+import { ScrollToTop } from '@/components/ui/scroll-to-top';
 import { organizationJsonLd, websiteJsonLd } from '@/lib/seo';
 import { SITE_URL, siteConfig } from '@/lib/site';
 
@@ -77,25 +77,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${inter.variable} ${fraunces.variable}`}
-    >
-      <head>
-        <script
-          // No-flash theme init before hydration.
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: themeScript }}
-        />
-      </head>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body className="min-h-screen bg-background font-sans">
         <SEOJsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
-        <ThemeProvider>
-          <Header />
-          <main id="main-content">{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <Header />
+        <main id="main-content">{children}</main>
+        <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );

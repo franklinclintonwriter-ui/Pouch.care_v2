@@ -2,15 +2,28 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { primaryNav } from '@/data/nav';
 import { Icon } from '@/components/ui/icon';
 import { cn } from '@/lib/utils';
+import type { NavGroup } from '@/lib/types';
 
 /** Desktop mega menu with keyboard support and hover/focus reveal. */
 export function MegaMenu({ invert }: { invert?: boolean }) {
   const [open, setOpen] = React.useState<string | null>(null);
+  const pathname = usePathname();
+
+  const isGroupActive = (group: NavGroup): boolean => {
+    const inPath = (href: string) =>
+      href !== '/' && (pathname === href || pathname.startsWith(`${href}/`));
+    if (group.href && inPath(group.href)) return true;
+    return (
+      group.columns?.some((col) => col.items.some((i) => inPath(i.href))) ??
+      false
+    );
+  };
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const scheduleClose = () => {
@@ -39,15 +52,20 @@ export function MegaMenu({ invert }: { invert?: boolean }) {
         {primaryNav.map((group) => {
           const hasMenu = !!group.columns;
           const isOpen = open === group.label;
+          const active = isGroupActive(group);
 
           if (!hasMenu && group.href) {
             return (
               <li key={group.label}>
                 <Link
                   href={group.href}
+                  aria-current={active ? 'page' : undefined}
                   className={cn(
-                    'inline-flex h-10 items-center rounded-full px-4 text-sm font-medium transition-colors',
+                    'relative inline-flex h-10 items-center rounded-full px-4 text-sm font-medium transition-colors',
                     triggerColor,
+                    active && (invert ? 'text-ivory' : 'text-navy-900'),
+                    active &&
+                      'after:absolute after:inset-x-4 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-gold-400',
                   )}
                 >
                   {group.label}
@@ -73,9 +91,12 @@ export function MegaMenu({ invert }: { invert?: boolean }) {
                 onClick={() => setOpen(isOpen ? null : group.label)}
                 onFocus={() => setOpen(group.label)}
                 className={cn(
-                  'inline-flex h-10 items-center gap-1 rounded-full px-4 text-sm font-medium transition-colors',
+                  'relative inline-flex h-10 items-center gap-1 rounded-full px-4 text-sm font-medium transition-colors',
                   triggerColor,
-                  isOpen && (invert ? 'text-ivory' : 'text-navy-900'),
+                  (isOpen || active) &&
+                    (invert ? 'text-ivory' : 'text-navy-900'),
+                  active &&
+                    'after:absolute after:inset-x-4 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-gold-400',
                 )}
               >
                 {group.label}
