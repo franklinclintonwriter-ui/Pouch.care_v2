@@ -89,7 +89,7 @@ export default function CareersPage() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {values.map((value, i) => (
             <ScrollReveal key={value.title} delay={i * 0.05}>
-              <div className="h-full rounded-2xl border border-border bg-card p-6 shadow-soft">
+              <div className="h-full rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-gold-300/70 hover:shadow-elevated">
                 <div className="mb-4 flex size-12 items-center justify-center rounded-full bg-navy-50 text-navy-700">
                   {value.icon}
                 </div>
@@ -117,7 +117,7 @@ export default function CareersPage() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {sortedDivisions.map((division, i) => (
             <ScrollReveal key={division.slug} delay={i * 0.04}>
-              <div className="h-full rounded-2xl border border-border bg-card p-6 shadow-soft">
+              <div className="h-full rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-gold-300/70 hover:shadow-elevated">
                 <div className="mb-4 flex size-12 items-center justify-center rounded-full bg-gold-50 text-gold-700">
                   <Icon name={division.icon} className="size-6" />
                 </div>

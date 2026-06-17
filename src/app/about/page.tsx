@@ -92,7 +92,7 @@ export default function AboutPage() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="flex gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft"
+                  className="flex gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-gold-300/70 hover:shadow-elevated"
                 >
                   <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-gold-50 text-gold-700">
                     <item.icon className="size-5" aria-hidden="true" />
