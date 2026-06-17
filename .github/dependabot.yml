@@ -1,0 +1,47 @@
+# Dependabot configuration for Pouch Care International Ltd.
+# Keeps dependencies fresh while preventing breaking *major* bumps of the core
+# toolchain from landing automatically (a Next 15 / ESLint 10 major bump
+# previously broke the build). Majors for these are ignored here and should be
+# adopted intentionally via a dedicated, tested migration PR.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    # Group routine updates into a single PR to reduce noise.
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+    ignore:
+      # Pin the framework/tooling to the versions the codebase supports;
+      # adopt majors deliberately (async params, flat config, etc.).
+      - dependency-name: 'next'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'react'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'react-dom'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'eslint'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'eslint-config-next'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'eslint-config-prettier'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'vitest'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@vitejs/plugin-react'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@playwright/test'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'tailwindcss'
+        update-types: ['version-update:semver-major']
+
+  - package-ecosystem: github-actions
+    directory: '/'
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
