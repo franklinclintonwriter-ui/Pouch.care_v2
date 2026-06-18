@@ -38,7 +38,7 @@ jobs:
 
       - name: Deploy to Cloudflare Pages
         id: deploy
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           # NOTE: repository secrets — must match the names configured in
           # Settings → Secrets and variables → Actions.
